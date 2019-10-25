@@ -1,0 +1,24 @@
+{
+  "name": "curso_js_tdd",
+  "version": "1.0.0",
+  "description": "JS TDD Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodrigoFMuniz/js-tdd-training.git"
+  },
+  "keywords": [
+    "TDD",
+    "JS",
+    "javascript"
+  ],
+  "author": "Rodrigo Muniz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RodrigoFMuniz/js-tdd-training/issues"
+  },
+  "homepage": "https://github.com/RodrigoFMuniz/js-tdd-training#readme"
+}
