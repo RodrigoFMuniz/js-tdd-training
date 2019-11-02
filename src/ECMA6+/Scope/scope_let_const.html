@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scope</title>
+</head>
+
+<body>
+
+    <script>
+        // constantes são imutáveis.
+        const constante = 1
+        //constante = 3 // gera erro de imutabilidade
+
+        //Escopo de função
+        function sayAnimal() {
+            let animal = 'cat'
+            console.log("Animal 1 dentro da função: ", animal) 
+        }
+        
+        //Escopo de bloco
+        if (true) {
+            let animal2 = 'dog'
+            console.log("Animal 2 dentro do bloco: ", animal2) 
+        }
+
+        // Variável let só existe dentro do escopo seja do bloco, ou função, e só em contexto de execução
+        sayAnimal() // Erro
+        console.log("Animal 1 fora da função: ", animal) // Erro
+        console.log("Animal 2 fora do bloco: ", animal2) // Erro
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scope</title>
+</head>
+
+<body>
+
+    <script>
+
+        //Escopo de função
+        function sayAnimal() {
+            var animal = 'cat'
+            console.log("Animal 1 dentro da função: ", animal) //Não capta a variável animal, pois esta só existe no contexto de execução da função.   
+        }
+        
+        //Escopo de bloco
+        if (true) {
+            var animal2 = 'dog'
+            console.log("Animal 2 dentro do bloco: ", animal2) //Capta a variável animal, pois esta declaração (var) vaza em escopo de bloco.   
+        }
+
+
+        sayAnimal()
+        console.log("Animal 2 fora do bloco: ", animal2) //Capta a variável animal, pois esta declaração (var) vaza em escopo de bloco.   
+        console.log("Animal 1 fora da função: ", animal) //Não capta a variável animal, pois esta só existe no contexto de execução da função.   
+
+    </script>
+</body>
+
+</html>
