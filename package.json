@@ -4,7 +4,9 @@
   "description": "JS TDD Course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/RodrigoFMuniz/js-tdd-training/issues"
   },
-  "homepage": "https://github.com/RodrigoFMuniz/js-tdd-training#readme"
+  "homepage": "https://github.com/RodrigoFMuniz/js-tdd-training#readme",
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "husky": "^3.0.9"
+  }
 }
