@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrow Function Analysis</title>
+</head>
+<body>
+    
+    <script>
+        //Using function instead of arrow function.
+        const BRAZIL = ['Rio de Janeiro', 'São Paulo', 'Minas Gerais','Rio de Janeiro']
+        const live = BRAZIL.map(function(state){
+            return `I live in ${state}.` 
+        })        
+        live.forEach(function(state){
+            console.log(state)
+        })
+        
+        //Using Arrow Function. Much fluid, less code, better reading
+        const USA = ['New York', 'Florida', 'Ohio']
+        const living = USA.map(state =>`I live in ${state}.`)        
+        living.forEach(state => console.log(state))
+
+        // A little test with function concat using arrow function
+
+        const livingOn = BRAZIL.filter(state => state === 'Rio de Janeiro')
+                                    .map(state => `${state} is a wonderful city`)
+                                    .forEach(state=> console.log(state))
+        
+
+    </script>
+</body>
+</html>
