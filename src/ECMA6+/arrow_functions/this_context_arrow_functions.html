@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>This Context</title>
+</head>
+<body>
+    <button id="btn">Click Me</button>
+
+    <script>    
+        //This context in an object vs global context. Each one has yours.
+        const OBJ = {
+            name: 'Rodrigo',
+            surname: 'Muniz',
+            printTheObjectName: function(){
+                setTimeout(function(){
+                    return `Printing It ${this.name}`
+                })
+            },
+            printTheObjectNameWithArrowFunction: function(){
+                setTimeout(()=>{
+                   console.log(`Printing It ${this.printTheObjectSurname()}`)
+                   return `Printing It ${this.printTheObjectSurname()}`
+                }, 1000)
+            },
+            printTheObjectSurname: function(){
+                return `Printing It ${this.surname}`
+            }
+        }
+
+        this.name = 'Ana'
+        console.log(OBJ.name) // Object context
+        console.log(this.name) // window context
+
+        //This context inside a function
+        console.log(OBJ.printTheObjectName())// this won't be printed because of this context. 
+        console.log(OBJ.printTheObjectSurname())// this will be printed normaly
+        console.log('Using Arrow function: ',OBJ.printTheObjectNameWithArrowFunction())//
+
+        //It brings the element #btn
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', function(){
+            console.log('Using regular function: ', this)
+        })
+
+        //When using arrow function, It brings the elemento Window
+        btn.addEventListener('click', ()=>{
+            console.log('Using Arrow function: ',this)
+        })
+
+    </script>
+</body>
+</html>
