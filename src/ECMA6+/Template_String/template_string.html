@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template String</title>
+</head>
+
+<body>
+    <script>
+        const article = {
+            title: 'Article title',
+            intro: 'A little text teaching how to use template strings with ES6',
+            body: 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.',
+            tags: ['es6', 'js', 'template-literal'],
+            author: 'Rodrigo Muniz'
+        }
+       
+        // Used to explain how the join works removing the commas 
+        // const mapping = article.tags.map(tag => `${tag}`)
+        // console.log(mapping)
+
+        function renderAuthor(name){
+            return name ? name : 'Unknown'
+        }
+
+        const markup = `
+            <article>
+                <header>
+                    <h1>${article.title}</h1>
+                </header>
+                <section>
+                    <p>${article.intro}</p>
+                </section>
+                <footer>
+                    <ul>
+                        ${article.tags.map(tag => `<li>${tag}</li>`).join('')}
+                    </ul>
+                    <p>${renderAuthor(article.author)}</p> 
+                </footer>
+            </article>
+        `
+        document.body.innerHTML = markup
+    </script>
+</body>
+
+</html>
