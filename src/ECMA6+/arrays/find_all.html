@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find and find.index</title>
+</head>
+<body>
+    <script>
+        const data = [
+            {
+            name: 'Rodrigo',
+            age: 33,
+            city: "São Paulo",
+            },
+            {
+            name: 'Jéssica',
+            age: 26,
+            city: "São Paulo",
+            },
+        ]
+
+        const personData = data.find(p => p.name == 'Jéssica')
+        console.log(personData.name)
+
+
+
+        // const sampleArray = [4,2,-5,0]
+        // const underZero = sampleArray.find(x => x<0 )// Brings the first value that respond to this condition
+        // const underZeroIndex = sampleArray.findIndex(x => x<0 )// Brings the position(index) of first value that respond to this condition
+        // console.log(underZero)
+        // console.log(underZeroIndex)
+    </script>
+</body>
+</html>
