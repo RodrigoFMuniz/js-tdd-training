@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tagged String</title>
+    <style>
+            .green {
+                color: green;
+                font-size: 25px;
+            }
+        </style>
+</head>
+
+
+<body>
+    <script>
+        const city = 'Rio de Janeiro'
+        const something = 'Wonderful'
+        const otherThing = 'Beaches'
+
+        function green(template, ...values){
+            debugger
+            return template.reduce((acc, part, i)=>{
+                return `
+                    ${acc}<span class="green">${values[i-1]}</span>${part}              
+                    
+                `
+            }) 
+         }
+
+        const brazil = green`I live in ${city}. A ${something} place with a lot of ${otherThing}
+        `
+        
+        document.body.innerHTML = brazil
+    </script>
+</body>
+
+</html>
