@@ -6,9 +6,13 @@
   "scripts": {
     "test": ".\\node_modules\\.bin\\mocha tests\\**\\*.spec.js"
   },
-  "keywords": [],
+  "repository": {
+    "type":"git",
+    "url": ""
+  },
+  "keywords": ["js", "TDD", "library"],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "chai": "3.5",
     "mocha": "3.2"
