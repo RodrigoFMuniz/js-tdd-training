@@ -86,10 +86,9 @@
       > testes_unitarios@1.0.0 test
       > .\node_modules\.bin\mocha tests\**\*.spec.js --reporter=nyan
 
-      0   -_-__,------,
+      3   -_-__,------,
       0   -_-__|  /\_/\ 
-      3   -_-_~|_( o .o) 
+      0   -_-_~|_( ^ .^) 
           -_-_ ""  "" 
 
-        0 passing (14ms)
-        3 pending
+        3 passing (15ms)

@@ -7,6 +7,7 @@ describe('nome da classe', function () {
         // Espera que algo aconteça
         // Entrada de dados / método soma(2,2)
         // Espera retornar / (4) => true | (3) => (false) broken test
+    
       })
     })
 
