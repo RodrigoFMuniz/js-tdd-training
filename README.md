@@ -188,3 +188,97 @@
 
       1 passing (8ms)
       2 pending
+
+### Hooks
+> Uma chamada que ocorre a partir de algum momento. Diminui duplicatas / Criar métodos que são chamados antes de outros.
+
+#### before
+> roda uma vez, antes do bloco
+
+      before(function(){
+
+      })
+
+#### after
+> roda uma vez, depois do bloco
+
+      after(function(){
+
+      })
+
+#### beforeEach
+> roda todas as vezes, antes de cada bloco
+
+      beforeEach(function(){})
+
+#### afterEach
+> roda todas as vezes, depois de cada bloco
+
+      afterEach(function(){})
+
+
+#### Use case
+
+      describe('Main', function(){
+        describe('method 1',function(){
+          context('caso 1', function(){
+            it('test1', function(){
+              console.log('test 1')
+            })
+          })
+          
+          context('caso 2', function(){
+            it('test2', function(){
+              console.log('test 2')
+            })
+          })
+        })
+
+        // Hooks
+        
+        //roda uma vez, antes do bloco
+        before(function(){
+          console.log('Before')
+        })
+        // Roda uma vez, depois do bloco
+        after(function(){
+          console.log('After')
+        })
+        
+        //roda todas as vezes, antes de cada bloco
+        beforeEach(function(){
+          console.log('Before Each')
+        })
+        
+        //roda todas as vezes, depois de cada bloco
+        afterEach(function(){
+          console.log('After Each')
+        })
+      })
+      ---------------------------------
+      Return =>
+      
+      >> npm test
+
+      > testes_unitarios@1.0.0 test
+      > .\node_modules\.bin\mocha tests\**\*.spec.js
+
+
+
+        Main
+      Before
+          method 1
+            caso 1
+      Before Each
+      test 1
+              √ test1
+      After Each
+            caso 2
+      Before Each
+      test 2
+              √ test2
+      After Each
+      After
+
+
+        2 passing (9ms)
