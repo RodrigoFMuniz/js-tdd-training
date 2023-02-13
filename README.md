@@ -257,7 +257,7 @@
       })
       ---------------------------------
       Return =>
-      
+
       >> npm test
 
       > testes_unitarios@1.0.0 test
@@ -282,3 +282,83 @@
 
 
         2 passing (9ms)
+
+
+#### Use case 2
+
+      describe('Main', function () {
+
+        let arr = []
+
+          // Hooks
+
+        //roda uma vez, antes do bloco
+        before(function () {
+          console.log('Before')
+        })
+        // Roda uma vez, depois do bloco
+        after(function () {
+          console.log('After')
+        })
+
+        //roda todas as vezes, antes de cada bloco
+        beforeEach(function () {
+          arr = [1, 2, 3]
+          console.log('Before Each', arr)
+        })
+
+        //roda todas as vezes, depois de cada bloco
+        afterEach(function () {
+          console.log('After Each')
+        })
+
+
+        describe('method 1', function () {
+          context('Pushing arrays', function () {
+            it('Should have a size of 4 when pushing another a value to the array', function () {
+              arr.push(4)
+              console.log(arr.length)
+            })
+          })
+
+          context('Popping arrays', function () {
+            it('Should have a size of 2 when popping a value of array', function () {
+              arr.pop()
+              console.log(arr.length)
+            })
+
+            it('Should remove member 3 when popping the array', function () {
+              console.log(arr.pop() === 3)
+            })
+          })
+        })
+      })
+
+      -----------------------------------------
+
+      > testes_unitarios@1.0.0 test
+      > .\node_modules\.bin\mocha tests\**\*.spec.js
+
+
+
+        Main
+      Before
+          method 1
+            Pushing arrays
+      Before Each [ 1, 2, 3 ]
+      4
+              √ Should have a size of 4 when pushing another a value to the array
+      After Each
+            Popping arrays
+      Before Each [ 1, 2, 3 ]
+      2
+              √ Should have a size of 2 when popping a value of array
+      After Each
+      Before Each [ 1, 2, 3 ]
+      true
+              √ Should remove member 3 when popping the array
+      After Each
+      After
+
+
+        3 passing (14ms)
