@@ -362,3 +362,73 @@
 
 
         3 passing (14ms)
+
+## CHAI
+
+> - Usando a interface expect, testa-se o Behavior(comportamento das funções). 
+> - Existem três interfaces possíveis, Should, Expect e Assert. As duas primeiras tratam mais o comportamento, enquanto a última é mais focada em valores. 
+> - Importam-se os recursos desssa maneira: `const expect = require('chai').expect`
+
+### Exemplo de uso
+
+      const expect = require('chai').expect
+
+      describe('Main', function () {
+
+        let arr = []
+
+          // Hooks
+
+        //roda uma vez, antes do bloco
+        before(function () {
+          console.log('Before')
+        })
+        // Roda uma vez, depois do bloco
+        after(function () {
+          console.log('After')
+        })
+
+        //roda todas as vezes, antes de cada bloco
+        beforeEach(function () {
+          arr = [1, 2, 3]
+          console.log('Before Each', arr)
+        })
+
+        //roda todas as vezes, depois de cada bloco
+        afterEach(function () {
+          console.log('After Each')
+        })
+
+
+        describe('Testing arrays', function () {
+
+          context('Pushing arrays', function () {
+            it('Should have a size of 4 when pushing another a value to the array', function () {
+              arr.push(4)
+              expect(arr).to.have.lengthOf(4)
+              console.log(arr.length)
+            })
+          })
+
+          context('Popping arrays', function () {
+            it('Should have a size of 2 when popping a value of array', function () {
+              arr.pop()
+              expect(arr).to.have.lengthOf(2)
+              console.log(arr.length)
+            })
+
+            it('Should remove member 3 when popping the array', function () {
+              // console.log(arr.pop() === 3)
+              // expect(arr).not.contain(3)
+              expect(arr.pop() === 3).to.be.true
+            })
+          })
+
+          //Smoke test
+          context('Checking type of arrays',function(){
+            it('Should be an array',function(){
+              expect(arr).to.be.a('array')
+            })
+          })
+        })
+      })

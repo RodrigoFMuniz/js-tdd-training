@@ -26,6 +26,9 @@
 //   })
 // })
 
+const expect = require('chai').expect
+const assert = require('assert')
+
 describe('Main', function () {
 
   let arr = []
@@ -53,10 +56,13 @@ describe('Main', function () {
   })
 
 
-  describe('method 1', function () {
+  describe('Testing arrays', function () {
+
     context('Pushing arrays', function () {
       it('Should have a size of 4 when pushing another a value to the array', function () {
         arr.push(4)
+        expect(arr).to.have.lengthOf(4)
+        // assert.equal(arr.length,3)
         console.log(arr.length)
       })
     })
@@ -64,11 +70,22 @@ describe('Main', function () {
     context('Popping arrays', function () {
       it('Should have a size of 2 when popping a value of array', function () {
         arr.pop()
+        expect(arr).to.have.lengthOf(2)
         console.log(arr.length)
       })
 
       it('Should remove member 3 when popping the array', function () {
-        console.log(arr.pop() === 3)
+        // console.log(arr.pop() === 3)
+        // expect(arr).not.contain(3)
+        expect(arr.pop() === 3).to.be.true
+      })
+    })
+
+    //Smoke test
+    context('Checking type of arrays',function(){
+      it('Should be an array',function(){
+        // assert.deepStrictEqual((arr instanceof Array), true)
+        expect(arr).to.be.a('array')
       })
     })
   })
