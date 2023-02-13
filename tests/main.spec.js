@@ -7,12 +7,14 @@ describe('nome da classe', function () {
         // Espera que algo aconteça
         // Entrada de dados / método soma(2,2)
         // Espera retornar / (4) => true | (3) => (false) broken test
-    
+        throw new Error('Just an error')
       })
     })
-
+    
     context('Case 2', function () {
-      it('Should happen something else', function () { })
+      it('Should happen something else', function () {
+        throw new Error('Just an error')
+      })
     })
   })
 

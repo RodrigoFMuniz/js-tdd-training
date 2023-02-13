@@ -59,9 +59,9 @@
 
 ### Reporters
 
-> Mudam a apresentação dos reultados
+> Mudam a apresentação dos resultados
 
-- Apresenta as opções de reporters `npm test -- --reporter=dot ` 
+- Apresenta as opções de reporters: `npm test -- --reporter=dot ` 
 
       > .\node_modules\.bin\mocha tests\**\*.spec.js --reporters
 
@@ -81,7 +81,7 @@
         nyan - nyan cat!
 
 
-- Escolhe uma das opções possíveis  `npm test -- --reporter=nyan`
+- Escolhe uma das opções possíveis:  `npm test -- --reporter=nyan`
 
       > testes_unitarios@1.0.0 test
       > .\node_modules\.bin\mocha tests\**\*.spec.js --reporter=nyan
@@ -92,3 +92,26 @@
           -_-_ ""  "" 
 
         3 passing (15ms)
+
+
+### Bail
+> Reporta a primeira falha e pára o processo de análise:   `npm test -- --bail`
+
+    > testes_unitarios@1.0.0 test
+    > .\node_modules\.bin\mocha tests\**\*.spec.js --bail
+
+
+
+      nome da classe
+        method A
+          Case 1
+            1) Should happen something
+
+
+      0 passing (7ms)
+      1 failing
+
+      1) nome da classe method A Case 1 Should happen something:
+        Error: Just an error
+          at Context.<anonymous> (tests\main.spec.js:10:15)
+          at process.processImmediate (node:internal/timers:476:21)
