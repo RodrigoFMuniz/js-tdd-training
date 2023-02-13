@@ -11,7 +11,7 @@ describe('nome da classe', function () {
       })
     })
     
-    context('Case 2', function () {
+    context.only('Case 2', function () {
       it('Should happen something else', function () {
         throw new Error('Just an error')
       })

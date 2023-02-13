@@ -115,3 +115,34 @@
         Error: Just an error
           at Context.<anonymous> (tests\main.spec.js:10:15)
           at process.processImmediate (node:internal/timers:476:21)
+
+### Only
+> Executa o contexto que posuir a sintaxe `context.only`
+
+    context.only('Case 2', function () {
+      it('Should happen something else', function () {
+        throw new Error('Just an error')
+      })
+    })
+
+      -----------------------------------
+    >> npm test
+    
+    > testes_unitarios@1.0.0 test
+    > .\node_modules\.bin\mocha tests\**\*.spec.js
+
+
+
+      nome da classe
+        method A
+          Case 2
+            1) Should happen something else
+
+
+      0 passing (7ms)
+      1 failing
+
+      1) nome da classe method A Case 2 Should happen something else:
+        Error: Just an error
+          at Context.<anonymous> (tests\main.spec.js:16:15)
+          at process.processImmediate (node:internal/timers:476:21)
