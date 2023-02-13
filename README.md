@@ -127,7 +127,7 @@
 
       -----------------------------------
     >> npm test
-    
+
     > testes_unitarios@1.0.0 test
     > .\node_modules\.bin\mocha tests\**\*.spec.js
 
@@ -146,3 +146,45 @@
         Error: Just an error
           at Context.<anonymous> (tests\main.spec.js:16:15)
           at process.processImmediate (node:internal/timers:476:21)
+
+### Skip
+> Ignora os testes com esta diretiva(método) / Oposto ao only / Funciona no context inteiro, ou no it (teste específico)
+
+    describe('method A', function () {
+      context('Case 1', function () {
+        it.skip('Should happen something', function () {
+          // Espera que algo aconteça
+          // Entrada de dados / método soma(2,2)
+          // Espera retornar / (4) => true | (3) => (false) broken test
+          throw new Error('Just an error')
+        })
+      })
+      
+      context.skip('Case 2', function () {
+        it('Should happen something else', function () {
+          throw new Error('Just an error')
+        })
+      })
+    })
+
+    ---------------------------------------------
+    >> npm test
+
+    > testes_unitarios@1.0.0 test
+    > .\node_modules\.bin\mocha tests\**\*.spec.js
+
+
+
+      nome da classe
+        method A
+          Case 1
+            - Should happen something
+          Case 2
+            - Should happen something else
+        method B
+          Case 1
+            √ Should happen something to case 1 of method B
+
+
+      1 passing (8ms)
+      2 pending

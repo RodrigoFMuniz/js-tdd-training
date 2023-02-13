@@ -3,7 +3,7 @@ describe('nome da classe', function () {
 
   describe('method A', function () {
     context('Case 1', function () {
-      it('Should happen something', function () {
+      it.skip('Should happen something', function () {
         // Espera que algo aconteça
         // Entrada de dados / método soma(2,2)
         // Espera retornar / (4) => true | (3) => (false) broken test
@@ -11,7 +11,7 @@ describe('nome da classe', function () {
       })
     })
     
-    context.only('Case 2', function () {
+    context.skip('Case 2', function () {
       it('Should happen something else', function () {
         throw new Error('Just an error')
       })
