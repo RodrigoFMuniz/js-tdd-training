@@ -432,3 +432,23 @@
           })
         })
       })
+
+
+## Jest
+
+### Instalando
+
+> `npm i --save-dev jest`
+
+### Config
+      "scripts": {
+        "test": ".\\node_modules\\.bin\\jest --watch"
+      }
+
+### Describe
+
+    describe("Nome do teste",()=>{})
+
+### Test
+
+    test("Nome do teste",()=>{})
