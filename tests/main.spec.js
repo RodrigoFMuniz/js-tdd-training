@@ -1,92 +1,56 @@
-// describe('nome da classe', function () {
-//   //Aqui roda-se os testes.
+const {sum, sub, mult, div} = require("../src/main.js")
 
+describe("Calc",()=>{
+  describe("Smoke tests",()=>{
 
-//   describe('method A', function () {
-//     context('Case 1', function () {
-//       it.skip('Should happen something', function () {
-//         // Espera que algo aconteça
-//         // Entrada de dados / método soma(2,2)
-//         // Espera retornar / (4) => true | (3) => (false) broken test
-//         throw new Error('Just an error')
-//       })
-//     })
-
-//     context.skip('Case 2', function () {
-//       it('Should happen something else', function () {
-//         throw new Error('Just an error')
-//       })
-//     })
-//   })
-
-//   describe('method B', function () {
-//     context('Case 1', function () {
-//       it('Should happen something to case 1 of method B', function () { })
-//     })
-//   })
-// })
-
-const expect = require('chai').expect
-const assert = require('assert')
-
-describe('Main', function () {
-
-  let arr = []
-
-    // Hooks
-
-  //roda uma vez, antes do bloco
-  before(function () {
-    console.log('Before')
-  })
-  // Roda uma vez, depois do bloco
-  after(function () {
-    console.log('After')
+    // it("Should exists the calc lib",()=>{
+    //   expect(sum).toBeDefined()
+    // })
+    it("Should exists the method sum",()=>{
+      expect(sum).toBeDefined()
+      expect(sum).toBeInstanceOf(Function)
+    })
+    it("Should exists the method sub",()=>{
+      expect(sub).toBeDefined()
+      expect(sub).toBeInstanceOf(Function)
+    })
+    it("Should exists the method mult",()=>{
+      expect(mult).toBeDefined()
+      expect(mult).toBeInstanceOf(Function)
+    })
+    it("Should exists the method div",()=>{
+      expect(div).toBeDefined()
+      expect(div).toBeInstanceOf(Function)
+    })
   })
 
-  //roda todas as vezes, antes de cada bloco
-  beforeEach(function () {
-    arr = [1, 2, 3]
-    console.log('Before Each', arr)
+  describe("Sum", ()=>{
+    it("Should return 4 when sum 2 and 2",()=>{
+      expect(sum(2,2)).toBe(4)
+    })
   })
 
-  //roda todas as vezes, depois de cada bloco
-  afterEach(function () {
-    console.log('After Each')
+  describe("Sub",()=>{
+    it("Should return 12 when take 4 from 16",()=>{
+      expect(sub(16,4)).toBe(12)
+    })
   })
 
-
-  describe('Testing arrays', function () {
-
-    context('Pushing arrays', function () {
-      it('Should have a size of 4 when pushing another a value to the array', function () {
-        arr.push(4)
-        expect(arr).to.have.lengthOf(4)
-        // assert.equal(arr.length,3)
-        console.log(arr.length)
-      })
+  describe("Mult", ()=>{
+    it("Should return 9 when multiply 3 and 3",()=>{
+      expect(mult(3,3)).toBe(9)
+    })
+  }),
+  describe("Div", ()=>{
+    it("Should return 4 when dividing 16 by 4",()=>{
+      expect(div(16,4)).toBe(4)
     })
 
-    context('Popping arrays', function () {
-      it('Should have a size of 2 when popping a value of array', function () {
-        arr.pop()
-        expect(arr).to.have.lengthOf(2)
-        console.log(arr.length)
-      })
-
-      it('Should remove member 3 when popping the array', function () {
-        // console.log(arr.pop() === 3)
-        // expect(arr).not.contain(3)
-        expect(arr.pop() === 3).to.be.true
-      })
+    it("Should return 0 when dividing by 0",()=>{
+      expect(div(10,0)).toBe(0)
     })
-
-    //Smoke test
-    context('Checking type of arrays',function(){
-      it('Should be an array',function(){
-        // assert.deepStrictEqual((arr instanceof Array), true)
-        expect(arr).to.be.a('array')
-      })
+    it("Should return 0 when second argument isn't a Number instance",()=>{
+      expect(div(10,"t")).toBe(0)
     })
   })
 })
