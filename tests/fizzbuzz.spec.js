@@ -43,5 +43,9 @@ describe('Main',()=>{
     expect(FizzBuzz(17)).toBe(17)
     expect(FizzBuzz(16)).toBe(16)
     expect(FizzBuzz(71)).toBe(71)
+    expect(()=>FizzBuzz('ola')).toThrow(/^errrou/)
+  })
+  it("Should return an Error when value argument of FizzBuzz to be diferent of Number type",()=>{
+    expect(()=>FizzBuzz('ola')).toThrow()
   })
 })
