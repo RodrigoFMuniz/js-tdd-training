@@ -1,22 +1,26 @@
-const mysqlObject = require('mysql')
+const mysql = require('mysql')
 require('dotenv/config')
 
-module.exports = class DbConnectionHandler{
+// module.exports = class DbConnectionHandler{
+class DbConnectionHandler{
   #user
   #pass
   #host
   #database
-  #conn
-  constructor(){
+  #port
+  #db
+  constructor(db = "sqlite"){
     this.#host = process.env.hostname
     this.#user = process.env.db_user
     this.#pass = process.env.db_pass
+    this.#port = process.env.db_port
     this.#database = 'book_shop'
+    this.#db = db
     this.conn = ""
   }
 
   #connection(){
-    this.conn = mysqlObject.createConnection({
+    this.conn = this.#db.createConnection({
       host:this.#host,
       user:this.#user,
       password: this.#pass,
@@ -30,27 +34,14 @@ module.exports = class DbConnectionHandler{
     return this.conn
 
   }
-
-  // connect(){
-  //   this.#connection()
-  //   this.conn.connect((err)=>{
-  //     if(err){
-  //       console.log('Database error: ', err.code.splice(0,20))
-  //       this.conn = ""
-  //     }
-  //     console.log('Connection established')
-  //   })
-  // }
-
-  // end(){
-  //   this.conn.end((err)=>{
-  //     if(err){
-  //       console.log('Database finish error: ', err)
-  //       this.conn = ""
-  //     }
-  //     console.log('Connection finished')
-  //     this.conn = ""
-  //   })
-  // }
 }
+
+// const c = new DbConnectionHandler(mysql).createConnection()
+// c.connect()
+// c.query("select * from customers",(err, data)=>{
+//   data.forEach(element => {
+//     console.log(element.id, element.first_name, element.last_name)
+//   });
+// })
+// c.end()
 

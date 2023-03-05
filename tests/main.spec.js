@@ -1,4 +1,4 @@
-const {sum, sub, mult, div} = require("../src/main.js")
+import {sum, sub, mult, div} from  "../src/main.js"
 
 describe("Calc",()=>{
   describe("Smoke tests",()=>{
