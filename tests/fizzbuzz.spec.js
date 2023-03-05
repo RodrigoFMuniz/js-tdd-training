@@ -14,6 +14,12 @@ import {FizzBuzz} from '../src/fizzbuzz.js'
 
 
 describe('Main',()=>{
+  it('Should be a Function',()=>{
+    expect(FizzBuzz instanceof Function).toBeTruthy()
+    expect(FizzBuzz).not.toBeNull()
+    expect(FizzBuzz).toBeDefined()
+    expect(FizzBuzz).not.toBeUndefined()
+  })
   it('Should return Fizz when multiple of 3',()=>{
     expect(FizzBuzz(3)).toBe("Fizz")
     expect(FizzBuzz(30)).not.toBe("Fizz")
