@@ -1,4 +1,4 @@
-import {sum, sub, mult, div} from  "../src/main.js"
+import {sum, sub, mult, div} from  "./main.js"
 
 describe("Calc",()=>{
   describe("Smoke tests",()=>{

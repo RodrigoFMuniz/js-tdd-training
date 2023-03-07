@@ -10,7 +10,7 @@
  * 
  */
 
-import {FizzBuzz} from '../src/fizzbuzz.js'
+import {FizzBuzz} from './fizzbuzz.js'
 
 
 describe('Main',()=>{
