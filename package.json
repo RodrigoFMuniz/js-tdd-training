@@ -1,5 +1,5 @@
 {
-  "name": "testes_unitarios",
+  "name": "testes_unitarios_bitcoin_converter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,9 @@
   "repository": {
     "type": "git",
     "url": ""
+  },
+  "bin": {
+    "btc_converter": "bin/main.js"
   },
   "keywords": [
     "js",
